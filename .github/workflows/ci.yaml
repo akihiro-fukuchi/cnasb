@@ -22,4 +22,5 @@ jobs:
       uses: actions/checkout@v1
     - name: Format
       run: make fmt
+      shell: bash
 

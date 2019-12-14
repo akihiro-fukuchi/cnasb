@@ -1,10 +1,9 @@
 GOFILES = `find . -type f -name *.go`
 
-check-prerequisites:
-	which go
-	which goimports
+goimports:
+	go get golang.org/x/tools/cmd/goimports
 
-fmt:
+fmt: goimports
 	goimports -d -w $(GOFILES)
 
 test: fmt

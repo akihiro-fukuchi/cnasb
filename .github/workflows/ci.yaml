@@ -21,6 +21,7 @@ jobs:
     - name: Check out code into the Go module directory
       uses: actions/checkout@v1
     - name: Format
-      run: make fmt
-      shell: bash
+      run: |
+        GO111MODULE=off GOBIN=/usr/local/bin go get golang.org/x/tools/cmd/goimports
+        make fmt
 

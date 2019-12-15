@@ -1,9 +1,6 @@
 GOFILES = `find . -type f -name *.go`
 
-goimports:
-	GO111MODULE=off go get golang.org/x/tools/cmd/goimports
-
-fmt: goimports
+fmt:
 	goimports -d -w $(GOFILES)
 
 test: fmt

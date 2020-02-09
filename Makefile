@@ -1,11 +1,10 @@
 GOFILES = `find . -type f -name *.go`
 
-check-prerequisites:
-	which go
-	which goimports
+goimports:
+	GO111MODULE=off GOBIN=$(PWD)/bin go get golang.org/x/tools/cmd/goimports
 
-fmt:
-	goimports -d -w $(GOFILES)
+fmt: goimports
+	bin/goimports -d -w $(GOFILES)
 
 test: fmt
 	go test ./...

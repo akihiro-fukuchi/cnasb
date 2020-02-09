@@ -5,7 +5,7 @@ ssh-keygen -t rsa -C "<email>" -f github.com.id_rsa
 ```
 
 use my github.com id_rsa
-ˆˆˆ
+```
 cat << EOS >> ~/.ssh/config
 Host github.com
   User git

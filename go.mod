@@ -1,3 +1,8 @@
 module github.com/akihiro-fukuchi/cnasb
 
 go 1.12
+
+require (
+	github.com/golang/protobuf v1.3.5
+	google.golang.org/grpc v1.28.1
+)

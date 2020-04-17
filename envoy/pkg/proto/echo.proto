@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "github.com/akihiro-fukuchi/cnasb/envoy/pkg/proto";
+
+service Echo {
+  rpc Echo (EchoRequest) returns (EchoResponse) {}
+}
+
+message EchoRequest {
+  string content = 1;
+}
+
+message EchoResponse {
+  string content = 1;
+}

@@ -1,0 +1,19 @@
+- op: add
+  path: /spec/template/spec/containers/0/envFrom
+  value:
+  - configMapRef:
+      name: fluent-bit-env
+  - secretRef:
+      name: fluent-bit-secret
+- op: add
+  path: /spec/template/spec/volumes/-
+  value:
+    name: fluent-bit-env
+    configMap:
+      name: fluent-bit-env
+- op: add
+  path: /spec/template/spec/volumes/-
+  value:
+    name: fluent-bit-secret
+    secret:
+      secretName: fluent-bit-secret

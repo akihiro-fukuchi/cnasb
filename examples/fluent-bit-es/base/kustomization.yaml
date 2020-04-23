@@ -1,0 +1,18 @@
+bases:
+- ./fluent-bit
+configMapGenerator:
+# https://github.com/fluent/fluent-bit-kubernetes-logging/blob/ae489ac4065b520af0a7f23b0a8a9bdcdfdec41c/output/elasticsearch/fluent-bit-configmap.yaml
+- name: fluent-bit-config
+  files:
+  - ./conf/fluent-bit.conf
+  - ./conf/input-kubernetes.conf
+  - ./conf/filter-kubernetes.conf
+  - ./conf/output-elasticsearch.conf
+  - ./conf/parsers.conf
+patchesJson6902:
+- target:
+    group: extensions
+    version: v1beta1
+    kind: DaemonSet
+    name: fluent-bit
+  path: ./fluent-bit_patch_daemonset.yaml

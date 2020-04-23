@@ -1,0 +1,11 @@
+namespace: local # your namespace.
+bases:
+- ../../base
+resources:
+- namespace.yaml
+configMapGenerator:
+- name: fluent-bit-env
+  env: fluent-bit.env
+secretGenerator:
+- name: fluent-bit-secret
+  env: fluent-bit-secret.env

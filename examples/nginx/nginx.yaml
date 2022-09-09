@@ -9,7 +9,7 @@ data:
       server_tokens on;
       location / {
         root   /usr/share/nginx/html;
-        index  index.html index.htm;
+        index  index.html index.html;
       }
       location /check.html {
         return 200;

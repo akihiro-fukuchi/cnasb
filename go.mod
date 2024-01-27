@@ -3,13 +3,14 @@ module github.com/akihiro-fukuchi/cnasb
 go 1.21.3
 
 require (
-	github.com/golang/protobuf v1.3.5
-	google.golang.org/grpc v1.28.1
+	github.com/golang/protobuf v1.5.3
+	google.golang.org/grpc v1.56.3
 )
 
 require (
 	golang.org/x/net v0.15.0 // indirect
 	golang.org/x/sys v0.12.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
-	google.golang.org/genproto v0.0.0-20190819201941-24fa4b261c55 // indirect
+	google.golang.org/genproto v0.0.0-20230410155749-daa745c078e1 // indirect
+	google.golang.org/protobuf v1.30.0 // indirect
 )

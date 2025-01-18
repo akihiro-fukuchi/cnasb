@@ -13,17 +13,15 @@ jobs:
     strategy:
       matrix:
         targets: [
-          {slack: {channel: '#dev'}, datadog: {url: 'https://datadog.com', api_key_secret_name: 'datadog', app_key_secret_name: 'datadog'}},
-          {slack: {channel: '#dev2'}, datadog: {url: 'https://datadog2.com', api_key_secret_name: 'datadog2', app_key_secret_name: 'datadog2'}},
+          { slack_channel: 'dev', datadog_org: 'app'},
+          { slack_channel: 'dev2', datadog_org: 'app2'},
+
         ]
     steps:
     - uses: actions/checkout@v2
     - name: Echo matrix vars
       run: |
-        echo "Target: ${{ matrix.targets }}"
-        echo "Slack channel: ${{ matrix.targets.slack.channel }}"
-        echo "Datadog url: ${{ matrix.targets.datadog.url }}"
-        echo "Datadog api key secret name: ${{ matrix.targets.datadog.api_key_secret_name }}"
-        echo "Datadog app key secret name: ${{ matrix.targets.datadog.app_key_secret_name }}"
+        echo "Slack channel: ${{ matrix.targets.slack_channel }}"
+        echo "Datadog url: ${{ matrix.targets.datadog_org }}"
 
 

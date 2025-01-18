@@ -10,7 +10,6 @@ jobs:
   matrix:
     name: Matrix
     runs-on: ubuntu-latest
-    needs: targets
     strategy:
       matrix:
         targets: [

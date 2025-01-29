@@ -1,0 +1,27 @@
+name: Matrix
+
+on:
+  pull_request:
+    branches:
+    - main
+
+# matrix job example
+jobs:
+  matrix:
+    name: Matrix
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        targets: [
+          { slack_channel: 'dev', datadog_org: 'app'},
+          { slack_channel: 'dev2', datadog_org: 'app2'},
+
+        ]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Echo matrix vars
+      run: |
+        echo "Slack channel: ${{ matrix.targets.slack_channel }}"
+        echo "Datadog url: ${{ matrix.targets.datadog_org }}"
+
+

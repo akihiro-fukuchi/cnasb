@@ -1,0 +1,617 @@
+-------------------
+Introduction
+-------------------
+
+Today I'm going to be showing you eight AI agent use cases with n8n, and these agents do a variety of different things from data analysis to creating viral shorts.
+
+There's a wide variety in here, and these are things that I'm using every day and members of my community are using every single day as well.
+
+These are meant to get your mind spinning, give you some good ideas for building agents, and also show you some ways that AI agents can be used.
+
+Now these agents that I will be showing you today, they're very cool, they're very helpful, but they're also very hard to build.
+
+If you've ever tried building an AI agent on your own or you've ever looked for an AI agent that can fulfill your use case, you know even that is a difficult task.
+
+A lot of people are stuck in something I like to call the template handcuffs - they're on the move all the time searching for another template to help them fulfill their use case when in reality all they need to do is switch their mindset from consumer to creator.
+
+That's what we do at AI foundations - we have a community built around teaching you the fundamentals of AI, making AI easy to understand, and we literally go from the fundamentals, the history of AI all the way up to building agents with tools like n8n.
+
+We have an entire 30 plus module n8n course in order for you to learn how to build agents yourself, that way you can create the things that I'm about to show you in today's video.
+
+We also have a lot of these agents that I'm going to show you today within our agent builds with blueprints so you can easily just click one-click installs, but the main thing we're teaching you here is the actual knowledge on how to fish.
+
+We're not just giving you fish, we're teaching you how to fish so that you can eat forever.
+
+If you want to join us and you want to become a part of our 989 member community, then I recommend doing so.
+
+This is more than just an AI place - like we're making friends here.
+
+If and when you join, go introduce yourself - we have over 8,000 comments on the introduction thread and we'd love to get to know you.
+
+Come in here, make friends, network, learn about AI from the start to the finish, and it's a never-ending process so buckle up.
+
+I'll leave a link in the description or the top-end comment if this group interests you - I promise you won't regret it.
+
+All right now, let's take a look at some of these AI agent use cases with n8n.
+
+-------------------
+Use Case 1: LLM Routing Agent
+-------------------
+
+Use case number one is an LLM routing agent.
+
+This is an agent that can be implemented pretty much in any workflow, but what I've done is I've extracted it and I've set it up in a dual agent system just like this where I have one agent and two agent just so you can see how this process is working.
+
+Like I said, you could take these two and put them in any workflow that you want - I've just broken it down very simple so you can see how this LLM routing agent is actually working behind the scenes.
+
+The idea of this agent is to take in your request, so if I were to chat something and I were to type out any prompt I want based on your prompt, what the decider agent would do in this LLM router is determine which model to use.
+
+I've given it three options in here: it can use perplexity, it can use ChatGPT's new O3 mini high, or it can use Claude 3.5 Sonnet.
+
+The reason you might want to do this within your automations or your agentic systems is because certain models have certain strengths and certain weaknesses as well.
+
+As you can see in here, I'm giving model and then I list the model and I'm giving the strengths of that model.
+
+For perplexity, for instance, as you can see I say it can search the web for live data, so if I ever have any questions where live search is needed, this agent is going to be able to decide to use the perplexity model here.
+
+I have the same thing with O3 mini high, as you can see I say this is for advanced reasoning tasks, and I also do the same for Anthropic's Claude.
+
+So I'm basically listing model strength model strength and I go on and I could have as many models as I want in here.
+
+Now if you start developing of course more than 10 models, you probably want to break this down into three agents and have a categorizer that breaks it down into categories and then selects models within those categories first - that way you have more room for system messages.
+
+Then we have this model right here and this uses open router which can connect to many many different models.
+
+I'm going to copy my output right here and I just want to show you what open router can connect to.
+
+As you can see, open router can connect to all of these different models - everything from Anthropic, everything from Cohere, everything from Deep Seek, and then just Gemini.
+
+It can literally connect to all of these different language models, so basically within my first agent I'm just using the tag or the ID that I can dynamically map to this model field so it can change the model based on my query.
+
+We can do that with an expression so it's watching my output.
+
+Let me test this out so I can show you what this actually looks like.
+
+If I chat with this and I say "find me restaurants for St Patrick's Day I can go to in Chicago" and since I'm asking a question like find me some restaurants, what it's going to do is this model is going to have to decide which model to use based on my query here.
+
+If I'm asking for live data most likely it should use perplexity, so I'm going to send this off and as you can see this model is going to run and then it's going to give me a structured output here which will change the model depending on what this agent decides to do.
+
+Then it gives me an up-to-date response with restaurants in downtown Chicago that I could celebrate St Patrick's Day at.
+
+If I go into my structured output parser what this does is this passes my query and also the model that it needs to use to the other agent.
+
+As you can see it says "find me restaurants for St Patrick's Day I can go to in Chicago" and then it also passes the model.
+
+So it's passing query and model to this other agent and that's what the agent is receiving in here is my query and the model gets mapped to the model field.
+
+Now using this model since we have the model on expression and also since we have that query point in the text, this would be an example of using a routing agent and this can do many different things for you like save on costs, give you more accurate responses - it can just completely revolutionize your AI agents.
+
+These are two agents that you can use, so I like using this whenever I need to decide between different models to select.
+
+-------------------
+Use Case 2: Deep Research Agent
+-------------------
+
+The next AI agent use case is my deep research agent.
+
+This thing has revolutionized the space - so many different people have been using it for so many different things: PhDs, radio broadcasters, everyday people wanting to learn about n8n, everyday people wanting to learn about any topic that comes to their mind.
+
+This thing is great, and don't worry about modeling this exact system - it is pretty complex with everything that I've created, but think about the idea of this system and what it's doing and how it can just do all of the work for you.
+
+Before I send off a customer request for this video, what I'm going to do is show you what a result looks like from this automation.
+
+All you have to do is type in a topic.
+
+What I did was I typed in "beekeeping and how it reduces stress" and what this automation is going to do for you is create a deep researched PDF with citations.
+
+That was a big problem within the AI space - people wanted deep research but there was no way to get all the information backed up by actual sources in a nice format very quickly.
+
+So that's what this automation does - you type in a topic and it does deep research for you, gives you citations that you can click on.
+
+For instance, this one I just did "beekeeping and how it reduces stress" - something that I had no idea if it even correlated or not but I wanted to see if it did.
+
+And it gave me loads and loads of information on how beekeeping actually does reduce stress and how there have actually been real studies on this.
+
+You can actually click on all of these sources as well.
+
+If I click on this source, as you can see it takes me to a page called "The Therapeutic Benefits of Beekeeping" so it's getting information from this website URL right here and actually putting it within its research.
+
+That's what this agent does.
+
+Let me send off a request test for a new topic and we will see what research we can get generated.
+
+The research that I'm going to be testing is "water only fasting for 9 days and how it regenerates the body" - something very interesting.
+
+We can actually submit this and this is just a basic form that is native to n8n.
+
+When I hit test workflow this form pops up - I could have this anywhere, I could have it in Google forms, Airtable, doesn't really matter.
+
+I'm going to hit submit and what this automation is going to do is actually just start running.
+
+It's going to create some queries for me, going to research, go to the research manager and create some outlines and some topics so that it can run through the big loop of the research operations where we're actually using perplexity as a research model.
+
+Very cool automation - I will be back when it is finished running.
+
+Along with this research agent actually comes a research agent table in Airtable, and this is something I like to call a rotating aggregation system because what this does is it automatically will add certain items to that database as the automation is running.
+
+It's adding all of its citations, its HTML snippets, citations to HTML, all of its research as it's going - it's updating your table live so you also have the raw information in here for each research paper that you create.
+
+Everything is linked back to a paper and we also have a place to store each and every one of our PDFs which is great.
+
+So this automation is just finishing up and as you're going to see, it's going to go down this done route and then actually create a PDF for us.
+
+After the PDF has been created, the workflow is executed successfully - it's added that PDF back to that Airtable I was showing you.
+
+Just to show you how long that took to run, as you can see it took 6 minutes and 32 seconds which isn't bad, and when you see this paper you're going to understand how long it would have actually taken you to do the same work.
+
+So I'm going to go back to this research agent and I'm going to go to the PDF that was just created.
+
+I can click to open it up and as you can see we have my topic at the top: "water only fasting for 9 days and how it regenerates the body" and then it goes into an introduction "understanding the regenerative potential" which is an interesting introduction.
+
+You know what is the regenerative potential and as you can see it just breaks down my topic in such a nice way and gives me resources and everything.
+
+If I click on these resources, let's just click on this first one - as you can see it was using an article or a research paper from Columbia University "How Fasting Refeeding Paradigm Rejuvenates Old Stem Cells" and it's pulling information from these reputable sources in order to develop its research paper.
+
+This is an 11-page PDF and not only does it map the sources with the data, but what this also does is pulls in a big list of references that it used for its research.
+
+So very professional, very cool - this is one way that you could build out an AI agent to create PDFs for you, give you sources, and just start doing research for you on any topic that you desire.
+
+That is this agent and that is what we've built within the community.
+
+If you want this template, we also have it within the community so you can easily install this and get it up and running.
+
+-------------------
+Use Case 3: YouTube Video Agent
+-------------------
+
+The next agent that I want to show you is an agent that allows me to talk with all of my YouTube videos.
+
+How could this actually be beneficial? Well, it's not only beneficial for me but also somebody who would want to talk with my YouTube videos, somebody who learns from my YouTube videos.
+
+What I've done is I've created an agent that has access to all of my YouTube video transcripts in something called a vector store.
+
+A vector store is just a better system for AI to reference PDFs - it's like a Google Drive on steroids that breaks down your PDFs in small segments so that whenever you ask a question, it can go and get that segment of text.
+
+It's not just using all the transcripts as context, but I will say this agent did not come to life without the help of two automations.
+
+As you can see we have automation number one and this automation takes in YouTube video URLs and then turns them into transcripts.
+
+The next automation actually processes my YouTube transcripts and uploads them to my vector store which when it's in my vector store, I can then talk to it and ask very granular questions through hours and hours of my footage.
+
+Let me show you how this works.
+
+This one all starts within my Airtable - I've built an Airtable database for myself and my community to store YouTube transcripts.
+
+I have a form over here so whenever I want to get a transcript from a YouTube video, I can just upload that video URL.
+
+Maybe I'm scrolling along productive dude's YouTube channel and I want to ask some questions about a certain video with my agent so I can go even deeper on that subject.
+
+Let's say I want to ask questions about Carter's self-learning agent - I can click on that video, I can grab this URL and then I can go over to my Airtable form and paste that and hit submit.
+
+What this is going to do is that's automatically going to create a YouTube transcript in a matter of seconds based on that video URL and it's going to be using the first automation in this agentic workflow.
+
+As you can see it just populated in in a matter of about 10 to 15 seconds and now from this entire video I've pulled in the entire video transcript.
+
+This in itself is an amazing automation use case within n8n, but today I want to show you how we can make that agentic - how we can actually have an agent in the loop.
+
+First what I'm going to do is I'm going to process that within my vector store so what that's going to do is grab my video URL, vectorize it and then change that stage automatically for me.
+
+So now I know it's vectorized within my database and all good to go and now I can actually go talk with that video and ask specific questions.
+
+I could say "what does Carter say in this video about writing a system prompt?" you know I could copy the video title even since I have a ton of videos in my database and I could talk with individual videos.
+
+I could paste in that video what does Carter say about writing a system prompt and how can I implement this in other agents.
+
+So this would be an example of going deeper with a YouTube transcript but first I needed to import that entire transcript into my database so I could vectorize it, then I can talk to it.
+
+I could send off this question and it's actually going to search my database right here for that specific video and for that part of the video about writing a system prompt and then it's going to give me tips on how I can use Carter's advice for my other agents as well.
+
+He says that a system prompt should be concise and only include essential characters - no extra filler.
+
+He advises crafting prompts that are structured using XML and JSON to ensure consistent behavior from your AI.
+
+So this is actual advice that Carter gave in the video within the writing a system prompt message here.
+
+This is another agent use case that can just absolutely transform your workflows when you have the ability to talk to YouTube videos that you enjoyed, that you learned from.
+
+Think about what that can do to your learning experience and how that can propel you to learn even deeper.
+
+-------------------
+Use Case 4: Data Analyst Agent
+-------------------
+
+The next AI agent use case is a data analyst agent.
+
+Now this can become very robust, but for now I want to show you a very basic example in order to get your mind spinning on how you might be able to implement a data analyst in your next agentic workflow.
+
+As you can see I have an AI agent node connected to two tools: financial data and chart types.
+
+I have my financial data in a very basic Google sheet - at the end of this video I'm going to show you how I've connected an agent to a database that has over 300,000 records.
+
+So when you see this just know you can definitely scale it up, but we're going to have to move out of Google Sheets.
+
+For now this data analyst has access to this sheet so we can see things like what month I tracked certain metrics like revenue, total expenses, net profit, research and development, marketing, sales and so on.
+
+I also have my Airtable tool showing the different chart types and data examples of how to generate specific charts in my workflow here.
+
+This workflow utilizes something called Quick Chart and Quick Chart allows you to generate images with a simple open API.
+
+So when you use this URL and you type in data for instance you can just display those like this and it will generate you a chart.
+
+So that's what we've implemented into our agent instructions so that we can generate charts and do data analysis on our data that we have.
+
+What I'm going to do is I'm just going to chat with this data analyst here and then I could say something like maybe I'll go look at my financial data like "give me a chart comparing revenue and net profit."
+
+I can say "generate a chart comparing revenue and net profit" and then I can send that off.
+
+What this is going to do is use one of ChatGPT's new models actually O3 in order to analyze my data - it's going to search my financial data, search my chart types if it needs to in order to generate a chart.
+
+Now you can see it's searching to see which type of chart it should generate based on my request here and then it's going to return all of that to the chat.
+
+Now you could hook this up to Telegram, WhatsApp, Slack - you don't have to do all of this within n8n, I'm just doing it for the sake of example.
+
+But as you're going to see I'm going to extend this chat a little bit when it returns the response we're going to also have a graph with that response.
+
+So it just got done generating and it says "this line chart compares revenue and net profit over the latest 10 months" and it generates an entire chart for us.
+
+At the bottom here it says "this visualization clearly displays the fluctuations and trends in both revenue and net profit."
+
+We can save this image if we want this entire chart and then we could even ask further questions and do more data analysis.
+
+I can ask a question like "based on my revenue and net profit how would you say my profit margins are?"
+
+I could send that off and then it generates an analysis based on my profit margin showing actual percentages based on my data and even generating me a profit margin chart.
+
+Now you could edit the styling of this any way you want but now I can see my profit margin.
+
+I could save this image and as you can see when I click in I can see it a little bit better.
+
+All this data is arbitrary of course - I just generated some fake data with ChatGPT but as you can see this data shows negative 80% profit margins in May of 2024 so this company must have been struggling but they quickly rebounded back around 30%.
+
+And this is just a good way to talk with data, view data using n8n and creating a data analyst agent.
+
+-------------------
+Use Case 5: Database Creator
+-------------------
+
+AI agent use case number five is a database creator.
+
+Yes, I have this agent create databases for me.
+
+Now I'm somebody who uses Airtable quite a bit - as you can see I've got a ton of different databases in here and one of the main reasons I have all these databases in here is because I have an agent that can create them for me.
+
+So whenever I need a database whether it's for sorting information, creating a tool for my agent, literally whatever I need a database for, I can have this agent use Airtable HTTP request and a simple form input where I describe using natural language the goal of my database.
+
+After that it's going to entirely create a database for me with rows, columns, select options and so on.
+
+For instance I could tell this form here the exact type of database I want - for example I could say "I want a construction project database that tracks job status and deadline."
+
+I could keep it simple for now or I could make it even more robust, but once I hit submit it's going to send this to my AI agent that's going to decide on which structure to use for my workflow.
+
+As you can see it didn't even need to search the field types because I've edited it in the back end here on how to build Airtable databases.
+
+And as you can see this HTTP request ran successfully.
+
+So if I go to my Airtable as you can see we now have a construction project tracker.
+
+When I open this up, as you can see it gives us exactly what we need - a database pre-populated with descriptions with job status in here of not started, in progress, under review, completed, and we even have a deadline field within our Airtable.
+
+Something very simple but this AI agent really helps me out because I can implement this in my own workflows.
+
+I could call this agent whenever I need to in order to create a database for me which just definitely adds to that non-deterministic output.
+
+If I need a database it can create one for me and even populate it with information all without me intervening at all.
+
+-------------------
+Use Case 6: Meeting Manager Agent
+-------------------
+
+AI agent use case number six is my meeting manager agent system.
+
+Now this thing is crazy - you might be looking at this going "what in the world is going on here?"
+
+Well don't worry, this is not all happening in one workflow but I did drag all of these automations and agents and tools all into one space so you could see everything that went into creating my meeting manager.
+
+Now where the system starts is the meeting orchestrator and whenever I have a problem, whenever I have a request, a question, this orchestrator agent's job is to call the proper tool I need in order to solve my problem.
+
+Is it a question about my calendar? My CRM? Do I want to create a zoom meeting? Do I want to email somebody? That's what this orchestrator agent's job is.
+
+It then sends it to the respective tool that even has more tools to fulfill my request - so very robust solution.
+
+Let me show you how it works in the meeting orchestrator.
+
+I can just use Telegram for this so I have Telegram open on the right and I have my orchestrator agent open on the left.
+
+Now you're not going to be able to see this run because I have it activated but I can ask it a question something like "what's on my schedule for tomorrow?"
+
+When you set up an agent like this with an orchestrator that connects to other tools you have one cohesive workflow that works like magic because each tool has its own responsibility, each workflow rather has its own responsibility.
+
+So when I ask it a question like that what it's going to do is go search my Google Calendar and reply back with all of my events that I have tomorrow.
+
+So as you can see: morning routine, haircut with Carter, AI foundations Q&A.
+
+And when I go to my events tomorrow as you can see on the 19th over here I have all of those events.
+
+So I have morning routine and I'm going to make my screen maximized, haircut with Carter and then AI foundations Q&A.
+
+Now these are arbitrary events that I created on a test calendar but it works with your real one too - I was just showing you this as an example.
+
+Another thing I could do is I could create events in here.
+
+So I could say something like "create an event with Nolan for tomorrow at 5:30 PM, we will talk about Marathon training for an hour on a zoom call."
+
+So it's going to take in all of this information - tomorrow 5:30 PM, an hour on a zoom call and then I say create a calendar event with Nolan.
+
+Well how does it know who Nolan is? Well remember it has access to my CRM database so it's going to know everything about Nolan right - it's going to know that Nolan's the lead editor at AI foundations, it's going to know Nolan's email, Nolan's full name here.
+
+So this solution works for you when you set it up in the correct way - as these different tools and you give it access to certain things.
+
+So I'm going to send off this request and what this is going to do is create an event on my calendar, it's going to create an actual Zoom meeting on my zoom account.
+
+But this is the great part about this automation - it says "there's a scheduling conflict at the time you requested - you have an event AI foundation's Q&A from 4:30 to 6:00 tomorrow" because remember I asked to do it from 5:30 to 6:30 and it says that I've got a conflicting event which is great.
+
+This is what you want it to do.
+
+So now I can even reply back in voice - I'll just say "let's do 6:30 to 7:30 instead, thank you for that."
+
+And since this is multimodal it can accept my voice, it can accept the text and I love how it just gives me suggestions based on my actual schedule.
+
+And then it will actually make that event on the correct day.
+
+As you can see it already added it in marathon training and now it's just going to add in a zoom call to that event as well because remember I said I want it on a zoom call.
+
+So it's going to create a zoom meeting for me.
+
+I'm going to wait for this message to populate in the chat and it should give me a nice summary with my event details, my link to the event and so on.
+
+As you can see it said "the marathon training discussion with Nolan Sriraj has been successfully scheduled" here are the details - it gives me the date, the time.
+
+If I go to my zoom and I hit refresh what you're going to notice is that we have marathon training discussion coming up tomorrow 6:30 to 7:30.
+
+We have a description, a zoom meeting link, an event link and everything we need ready to go in here.
+
+I could even say "email Nolan the event details" and send that over and what that's going to do is search my CRM for Nolan's email address here and then it's going to email him with the event details.
+
+This is my meeting manager agent - I have this one within the community as well and I've showcased it in other YouTube videos.
+
+But just to show you that the email works - it says "the email to Nolan confirming the marathon training discussion has been successfully sent."
+
+As you can see the email would have sent (this is a test email nolan@example.com doesn't actually exist) but this is the thing that it would have sent.
+
+You could work on the formatting very easily.
+
+-------------------
+Use Case 7: Viral YouTube Shorts
+-------------------
+
+AI agent use case number 7 allows you to create viral YouTube shorts.
+
+Now I'm going to send this one over to my brother/co-founder of AI foundations Carter in order to demonstrate this because he's actually the one who built this.
+
+But I do want to mention this is one of the automations within our community as a lot of these have been throughout the video.
+
+But now here's Carter with the viral YouTube shorts agent.
+
+Thanks Drake, I'm glad to be stepping in for use case number seven.
+
+Use case number seven is generating short form videos inside of n8n.
+
+I'm just going to be using Telegram here so that I can chat with this agent on my computer or on my phone when I'm on the go.
+
+The neat thing about this automation is that it has three steps: it has a check step right here and then it has the actual automation itself, and finally there's a check step for if we want to upload that video to YouTube directly.
+
+This agent is going to check back with me and see if I actually want to upload this or if I want to move forward with a video idea.
+
+The first part here as I said is just checking if we want to use the idea and basically just helping me brainstorm ideas.
+
+So this agent right here has two different responses that it can use - it can use a conversational response if it's just talking to me or it can actually send off a request for a video idea to go through.
+
+If it sends off a request for a video to go through it'll go down this route over here where it moves either to the actual automation or it loops back around if I deny the video idea that it gives me.
+
+Once a video idea is accepted it moves on to the generate video flow and the ideator actually creates the script title and description for the video.
+
+This is where you can get really creative with your system prompts and you can really make this your style.
+
+Then we move on to some HTTP requests here.
+
+First we have an HTTP request in 11 labs and this goes off in two directions: first it chunks out the script into each individual character and sees how long that script is actually going to be so that my image prompter can decide what images to generate for the video, and it also goes down this route here to just get the audio file itself.
+
+Once it gets to the image prompter, the image prompter is going to create a variable amount of images right here based on the length of the script and it's going to output those to replicate where it's going to generate images using Flux Laura which is an image generation model.
+
+Then it will wait right here until the images are complete and get the images and then those images are used to request a video.
+
+Very similar step here - it's just going to request that video, wait for the video to complete and then get the final video.
+
+It's going to iterate through this flow as many times as it needs to based on how many images actually came in which is based on the script length.
+
+Then it's going to aggregate all of those videos together, pull together the audio file and upload it to run some code on Zero Cod kit.
+
+This code job is to generate the video editor request and then once the video editor request is generated we're going to send that off to a video editing API called Creatom Mate.
+
+We'll wait for the video to render and then finally we'll have the get final video node right here which just gets the final video URL.
+
+Then we'll save that final video URL and all of the stats in an Airtable and we'll hand it off for another check step in Telegram where it's going to come back and ask me if I want to post the video to YouTube.
+
+If I say no, it's just going to come down and say "okay I didn't upload that but you can access it in the Airtable."
+
+But if I say yes and I approve of the video and I want it to upload to YouTube then it'll go down this route right here where it's going to get the base 64 for that video, convert it to a file, upload it to YouTube and then add the YouTube video ID to our Airtable database so that I can get a video link.
+
+Then it'll send me a message with the final video upload on YouTube.
+
+So let me show you how this works - I can just say "I want to generate a video idea about coffee."
+
+I can send that off and here it gives me a video idea so it says "interesting fact about the science behind coffee brewing."
+
+If I wanted to I could just decline this and hit open and then it's going to come back to me very intuitively and it's going to say "what can I improve upon?"
+
+So it says "could you tell me a bit more about what you're envisioning for the coffee video? Are you leaning towards a quick brewing tip, a fun fact about coffee culture, or maybe something else?"
+
+And I could just say "let's think of some brewing tips that we could make videos about."
+
+And then it's just going to come back with a conversational reply and say "let's narrow down some brewing tips - would you like a tip focused on water temperature, grind size, or brewing duration? We can even cover equipment differences like French press versus drip coffee - what do you prefer?"
+
+And I'm just going to say "I want some tips on how to create beautiful latte art but the video should only cover one tip so let's narrow down some tips we could cover in the video."
+
+And it gives me the response here and it has this tip here for ensuring the right espresso blend to create the best canvas.
+
+I'm just going to copy that and I'm going to say "let's go with this idea" and send that off.
+
+And here it gives me the idea so it says "single tip showing how the right espresso blend creates the perfect canvas for stunning latte art."
+
+I'm just going to copy this and I'll decline.
+
+I'm going to say "this looks good but when you pass the video idea give the actual tip for this as more of an answer to the video idea so that the video can be generated based on your prompt rather than passing just an idea."
+
+And I'll send that off and finally we have an idea here that's pretty solid - it says "espresso blend with balanced acidity and thick crema creates an ideal canvas for latte art."
+
+I'm just going to send this off by hitting approve and now my video is going to work.
+
+If I click on the executions tab here I'll see that it's running.
+
+So if I click on this I can just wait until the execution is done running or until it needs the next step from me and then it'll come back and ask me if it's ready to upload to YouTube.
+
+All right so this automation has been running for a little while now and if I zoom in here you're going to see that it's at this last wait step and it's asking me if I want to post this to YouTube.
+
+So at this point I can just check the video out and make sure it's solid and then if I like it I can post it to YouTube.
+
+So I'll click the link and this is my first time watching this video so we'll check it out and see how it went.
+
+[Video plays: "Discover how a rich espresso blend sparks creative latte art. Join me as I explore the enchanting process of blending a finely tuned espresso with balanced acidity and a velvety thick crema. Watch every step transform this ideal canvas into a vibrant latte art masterpiece from extraction to intricate design techniques. Discover how precision and passion come together to redefine your coffee ritual. Subscribe for daily espresso art tips and tricks today."]
+
+Now if I really wanted to go in and customize this to improve the script and the image prompting for this then I could go into the ideator and the image prompter and I could update the system prompts.
+
+But just for the sake of this video I'm going to show you what happens when I approve this and upload it to YouTube.
+
+So I'll hit approve then I'll hit open and now the execution is going to continue running and it's going to go upload that video to YouTube.
+
+And boom just like that it uploaded the video to YouTube and I can just click this link to go and watch the video.
+
+So let's click this link and check it out.
+
+All right perfect so let's go ahead and play this.
+
+[Video starts playing again]
+
+So that's how quick you can get a video uploaded on YouTube.
+
+And if I come over to Airtable I can see a log of all the videos that I've created and I can see the ones that both haven't been uploaded yet and the ones that have been uploaded with a YouTube link.
+
+Now the one that I did upload is this one right here and if I scroll over as you can see it even has analytics in here.
+
+So right now it has zero views, zero likes, zero comments but if I drop a quick like on this video and we'll also just leave a quick comment, as you can see it hasn't updated here in Airtable yet.
+
+But if I hit run on this script that I created to automate this it's going to come back and give me the updated stats.
+
+So it has one view, one like and one comment now.
+
+So if you head over to the AI foundations community and go to the classroom and then you scroll down to the n8n Mastery course you can access this by going down to our agent builds here and going to the viral shorts automation.
+
+And then here I'm going to have all of the versions for this so that you can quick install them.
+
+And then here at the very bottom of this you can go to the one-click install for viral shorts - I'm going to have a few different versions in here.
+
+This is the basic version but if you want the one with the check step I'm going to be uploading that as well here.
+
+Now back to Drake for your final use case.
+
+Thank you Carter for sharing your viral shorts agent with us - highly appreciate it.
+
+-------------------
+Use Case 8: PostgreSQL Database Agent
+-------------------
+
+Next we have AI agent use case number eight and this one is honestly one of my favorites because what it allows you to do is chat with hundreds of thousands of rows of data, get very specific insights, get ranges of data and so much more.
+
+AI agent use case number eight is chatting with a PostgreSQL database with your AI agent and using your PostgreSQL database as a tool.
+
+That might sound kind of confusing but I just want to show you what this is capable of.
+
+It's a very small agent right but we were giving it tools to use non-deterministically so it can search the schema on whatever it can search anything in my sleep data ever.
+
+And what we have here is these two tools for a PostgreSQL database.
+
+Now the first one is just searching the schema so it's searching like my database rows, my columns, my names - literally everything so it can just pick up a bunch of context on what I want.
+
+But as you can see this schema is composed of columns right - the schema is just like the structure, you can think of schema like structure.
+
+And the Sleep data is actual queries that are used in order to go and find very specific items.
+
+Now what I do is each night I have this ring that tracks my sleep (the Oura ring I've showed it off in a few videos) but that ring tracks my sleep and I can actually hook this up to an HTTP request and automatically append all of my sleep data to this database right.
+
+And what I have is five tables: I have my heart rate data and this tracks every five minutes in my sleep so it has a timestamp every five minutes of every night when I'm sleeping.
+
+So this heart rate data has 22,000 records in it.
+
+My HRV data that's the same - it's tracking in 5-minute timestamp so I have another 23,000 records in here.
+
+My movement data on the other hand is tracking every 30 seconds and it scores my movement you know it gives it a two for moderate, three for heavy, one for light.
+
+As you can see initially in the night I'm kind of moving all over the place but as the night goes on my movement gets a lot lighter.
+
+So every 30 seconds it's tracking my movement every single night so you can imagine all the data I receive when we're talking about 300 nights of 30-second timestamps.
+
+This movement data database has almost 225,000 records and this is just an estimate.
+
+I also have sleep sessions and sleep stages to determine whether I was awake in deep sleep or I had light sleep.
+
+Also there's a category for REM sleep in here so I can really create some awesome data analysis with this.
+
+But let's get back to the agent because with this agent what I can do is I can actually talk to a PostgreSQL database and PostgreSQL databases are great for large data with many timestamps.
+
+So let me just send off a few queries here so you can see how this works.
+
+I could ask something hyper specific - you know you saw all the records I have in there - I could ask "what was my heart rate on January 2nd at 4:21 AM?"
+
+And it's going to be able to query my database after searching the schema.
+
+As you can see it's searching the structure of my schema right there and then it's going to develop a query to give to my sleep data in order to execute it and pull that exact heartbeat that I recorded at 4:22 AM eastern time on January 2nd.
+
+So it said it was 65 beats per minute - I was sick on January 2nd so my heartbeat was a little high.
+
+I could even get a data range right - I could say "how about for all of January what was my average heart rate each night?"
+
+And I'm just asking about my heart rate right here - I could even ask about my movement data, was I moving around a lot at this time at this night on this date.
+
+Some people might think this is unnecessary but honestly where AI is going you're going to need a database structured with everything.
+
+As you can see it gives me my average heart rate for each night in January of 2025 and now I could even ask some data analysis like questions.
+
+I could say "based on my average heart rate which nights might I have been sick?"
+
+I could send that off and now it can make guesses based on my average heart rate throughout January on which nights I was sick.
+
+So January 3rd it tracked a really high BPM so that was a day I was sick - I actually got sick twice in January and the other time was in the back half.
+
+So as you can see it can even track the days that I'm sick based on my heart rate because it knows my baseline from my data or it can at least get my baseline from my data.
+
+So this is AI agent use case number 8 is using a PostgreSQL database and an agent in order to communicate with that PostgreSQL database.
+
+-------------------
+Conclusion
+-------------------
+
+But with that being said that is all I have for this video.
+
+I hope you enjoyed, I hope that you learned a thing or two about agents and what you can start implementing in your own workflows.
+
+Again if you want the knowledge on how to build awesome stuff like this in this AI Revolution then I highly recommend joining our AI foundations Community.
+
+This is where all of the magic is happening - we don't just give you templates although we do give you templates, we also give you the knowledge that it takes to go out and build this stuff on your own.
+
+And that's what is going to separate everyone in this AI Revolution is who can build and who can't build right - it's the haves and the have nots.
+
+When you change your mindset from consumer template grabber to template builder, great things happen and you can actually start implementing this stuff in so many different ways.
+
+Landing your first client, automating your process that saves 5 minutes a day, 20 minutes a day, 30 minutes a day - whatever it may be, we teach you how to do it in here all the way from the fundamentals too.
+
+It's not just about AI agents right - you have to understand the fundamentals first so that's what we teach in there.
+
+Break the chains of being a template consumer and start learning the actual skills it takes to build agents and you will be a lot more successful.
+
+All right that's all I have for this video.
+
+If you like this video well then drop a like and subscribe - I would highly appreciate it.
+
+I'm going to be showing a playlist here with all of Carter and I's n8n tutorials if you want to watch that go ahead.
+
+And with that being said I will see you in the next video.
